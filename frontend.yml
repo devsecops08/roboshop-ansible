@@ -15,7 +15,7 @@
         state: present
 
     - name: copy nginx to config file
-      ansible.builtin.template:
+      ansible.builtin.copy:
          src: nginx.conf
          dest: /etc/nginx/nginx.conf
          remote_src: yes
