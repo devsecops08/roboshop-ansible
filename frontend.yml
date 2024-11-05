@@ -16,9 +16,9 @@
 
     - name: copy nginx to config file
       ansible.builtin.copy:
-         src: ./nginx.conf
+         src: nginx.conf
          dest: /etc/nginx/nginx.conf
-         remote_src: yes
+         
 
     - name : start nginx
       ansible.builtin.systemd_service:
