@@ -1,0 +1,30 @@
+- name: Frontend
+  hosts: all
+  become: yes
+  tasks:
+   - name: disable default nginx
+     ansible.builtin.shell: dnf module disable nginx -y
+   - name: enable nginx 24 Version
+     ansible.builtin.shell: dnf module enable nginx:1.24 -y  
+   - name: install nginx
+     ansible.builtin.dnf:
+        name: nginx
+        state: present
+   -  name : copy nginx to config file 
+      ansible.builtin.copy:
+       src: nginx.conf
+       dest: /etc/nginx/nginx.conf
+   - name: start nginx
+     ansible.builtin.systemd_service:
+       name : nginx
+       state: started       
+        
+        
+        
+    
+          
+
+
+       
+      
+     
