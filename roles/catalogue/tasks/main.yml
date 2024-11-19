@@ -17,7 +17,7 @@
     state: installed
 
 - name: Load Master Data
-  ansible.builtin.shell: mongodb-dev - {{ env }}.adevsecops08.online </app/db/master-data.js
+  ansible.builtin.shell: mongodb - {{ env }}.adevsecops08.online </app/db/master-data.js
 
 - name: restart catalogue Service
   ansible.builtin.systemd_service:
