@@ -6,4 +6,20 @@
      name: common
      tasks_from: Maven
 
+- name: Install MySQL Client
+  ansible.builtin.dnf:
+    name: mysql
+    state: installed
 
+- name: Load SQL File
+  ansible.builtin.shell: mysql -h mysql-{{ env }}.adevsecops08.online -uroot -pRoboShop@1 < /app/db/{{ item }}.sql
+  loop:
+    - schema
+    - app-user
+    - master-data
+
+- name: Restart shipping
+  ansible.builtin.systemd_service:
+    name: shipping
+    state: restarted
+    
