@@ -1,5 +1,4 @@
-- name :  set prompt
-  ansible.builtin.shell: set-prompt {{app_name}}-{{ env }}
+
 
 - name: Install MySQL Server
   ansible.builtin.dnf:

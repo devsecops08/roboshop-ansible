@@ -1,5 +1,4 @@
-- name :  set prompt
-  ansible.builtin.shell: set-prompt {{app_name}}-{{ env }}
+
 
 - name: Load NodeJS
   ansible.builtin.include_role:
