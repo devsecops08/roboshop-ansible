@@ -1,5 +1,3 @@
-
-
 - name: Install MySQL Server
   ansible.builtin.dnf:
      name: mysql-server
@@ -13,4 +11,4 @@
 
 - name: Setup MySQL Password
   ansible.builtin.shell: mysql_secure_installation --set-root-pass {{ lookup('hashi_vault', 'roboshop-{{env}}/data/mysql:mysql_root_password token={{ vault_token }} url=http://vault-internal.adevsecops08.online:8200')}}
-   ## Password should not be hardcoded. We will change this.
+
