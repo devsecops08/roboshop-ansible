@@ -1,6 +1,6 @@
 - name: Install Maven
   ansible.builtin.dnf:
-     name: Maven
+     name: maven
      state: installed
 
 - name: Load App prerequisites
