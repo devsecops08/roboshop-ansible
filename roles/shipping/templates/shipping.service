@@ -3,10 +3,11 @@ Description=Shipping Service
 
 [Service]
 User=roboshop
-Environment=CART_ENDPOINT={{ lookup('hashi_vault', 'roboshop-{{env}}/data/shipping:CART_ENDPOINT token={{ vault_token }} url=http://vault-internal.adevsecops08.online:8200')}}
-Environment=DB_HOST={{ lookup('hashi_vault', 'roboshop-{{env}}/data/shipping:DB_HOST token={{ vault_token }} url=http://vault-internal.adevsecops08.online:8200')}}
+Environment=CART_ENDPOINT=cart-{{ env }}.adevsecops08.online :8080
+Environment=DB_HOST=mysql-{{ env }}.adevsecops08.online
 ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
 
 [Install]
 WantedBy=multi-user.target
+
