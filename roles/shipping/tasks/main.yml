@@ -1,25 +1,28 @@
+#- name: Load Maven
+ # ansible.builtin.include_role:
+  ##  tasks_from: maven
 
+#- name: Install MySQL Client
+ # ansible.builtin.dnf:
+  #  name: mysql
+   # state: installed
 
-- name: Load Maven
-  ansible.builtin.include_role:
-     name: common
-     tasks_from: maven
-
-- name: Install MySQL Client
-  ansible.builtin.dnf:
-    name: mysql
-    state: installed
-
-- name: Load SQL File
-  ansible.builtin.shell: mysql -h mysql-{{ env }}.adevsecops08.online -uroot  -p{{ lookup('hashi_vault', 'roboshop-{{env}}/data/shipping:mysql_root_password token={{ vault_token }} url=http://vault-internal.adevsecops08.online:8200')}} < /app/db/{{ item }}.sql
-  loop:
-    - schema
-    - app-user
-    - master-data
+#- name: Load SQL File
+ # ansible.builtin.shell: mysql -h mysql-{{ env }}.adevsecops08.online -uroot  -p{{ lookup('hashi_vault', 'roboshop-{{env}}/data/shipping:mysql_root_password token={{ vault_token }} url=http://vault-internal.adevsecops08.online:8200')}} < /app/db/{{ item }}.sql
+  #loop:
+   # - schema
+    #- app-user
+    #- master-data
   ## The password hardcoded we will replace.
 
-- name: Restart shipping
-  ansible.builtin.systemd_service:
-    name: shipping
-    state: restarted
+#- name: Restart shipping
+ # ansible.builtin.systemd_service:
+  #  name: shipping
+   # state: restarted
+
+   - name: Install Doker
+     ansible.builtin.include_role:
+      name: common
+      tasks_from: docker
+    
 

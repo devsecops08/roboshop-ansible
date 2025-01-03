@@ -1,0 +1,3 @@
+- name: Install Docker
+  ansible.builtin.dnf:
+    name: podman docker
