@@ -16,7 +16,7 @@
      restart: true
      restart_policy: "no"
      ports:
-        - "9090:9090"
+        - "8080:8080"
      env:
       CATALOGUE_HOST : "{{ lookup('hashi_vault', 'roboshop-{{env}}/data/cart:CATALOGUE_HOST token={{ vault_token }} url=http://vault-internal.adevsecops08.online:8200')}}"
       CATALOGUE_PORT : "{{ lookup('hashi_vault', 'roboshop-{{env}}/data/cart:CATALOGUE_PORT token={{ vault_token }} url=http://vault-internal.adevsecops08.online:8200')}}"
