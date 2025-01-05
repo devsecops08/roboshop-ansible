@@ -37,7 +37,7 @@
     restart: true
     restart_policy: "no"
     ports:
-        - "8080:8080"
+        - "9090:9090"
     env:
        MONGO: "{{ lookup('hashi_vault', 'roboshop-{{env}}/data/catalogue:MONGO token={{ vault_token }} url=http://vault-internal.adevsecops08.online:8200')}}"
        MONGO_URL : "{{ lookup('hashi_vault', 'roboshop-{{env}}/data/catalogue:MONGO_URL token={{ vault_token }} url=http://vault-internal.adevsecops08.online:8200')}}"
